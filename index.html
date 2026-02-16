@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delivery Exception Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Delivery Exception Management Dashboard</h1>
+
+    <!-- ===== Exception Form ===== -->
+    <div class="form-container">
+        <h2>Report Delivery Issue</h2>
+        <form id="exceptionForm">
+
+            <label>Delivery ID</label>
+            <input type="text" id="deliveryId" required>
+
+            <label>Customer Name</label>
+            <input type="text" id="customerName" required>
+
+            <label>Issue Type</label>
+            <select id="issueType" required>
+                <option value="">Select Issue</option>
+                <option>Address Not Found</option>
+                <option>Customer Not Available</option>
+                <option>Payment Issue</option>
+                <option>Package Damaged</option>
+            </select>
+
+            <label>Priority</label>
+            <div class="radio-group">
+                <input type="radio" name="priority" value="Low" required> Low
+                <input type="radio" name="priority" value="Medium"> Medium
+                <input type="radio" name="priority" value="High"> High
+            </div>
+
+            <label>Notes</label>
+            <textarea id="notes"></textarea>
+
+            <button type="submit" class="primary-btn">Submit</button>
+
+        </form>
+    </div>
+
+    <!-- ===== Filters ===== -->
+    <div class="filter-container">
+        <h2>Filters</h2>
+
+        <select id="filterType">
+            <option value="All">All Issue Types</option>
+            <option>Address Not Found</option>
+            <option>Customer Not Available</option>
+            <option>Payment Issue</option>
+            <option>Package Damaged</option>
+        </select>
+
+        <select id="filterStatus">
+            <option value="All">All Status</option>
+            <option>Open</option>
+            <option>Resolved</option>
+        </select>
+
+        <div class="counts">
+            Open Issues: <span id="openCount">0</span> |
+            Resolved Issues: <span id="resolvedCount">0</span>
+        </div>
+    </div>
+
+    <!-- ===== Dashboard Table ===== -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Delivery ID</th>
+                    <th>Customer Name</th>
+                    <th>Issue Type</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
